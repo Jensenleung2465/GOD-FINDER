@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOD直聘</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .loading-bar {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        #job-list {
+            margin-bottom: 20px;
+        }
+
+        .job {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>招聘信息</h1>
+        
+        <div id="loading-bar" class="loading-bar">加载中...</div>
+        
+        <div id="job-list">
+            <h2>招聘信息</h2>
+            <div id="jobs"></div>
+            <p id="no-jobs" style="display: none;">沒有招聘信息。</p>
+        </div>
+
+        <!--<h2>添加招聘信息</h2>
+        <p>要添加招聘信息，请修改代码中的 `addJob` 函数。</p>
+        <p>例如：在 `addJob` 函数中添加新的招聘信息。</p>
+        <pre>
+        // 示例:
+        // addJob('新职位', '职位描述');
+        </pre>
+    </div>-->
+
+    <script>
+        let jobs = [
+            { title: '软件工程师', description: '负责开发和维护软件产品。' },
+            { title: '产品经理', description: '负责产品规划和市场调研。' }
+        ];
+
+        // 添加招聘信息的函数
+        function addJob(title, description) {
+            jobs.push({ title, description });
+            renderJobs();
+        }
+
+        // 渲染招聘信息
+        function renderJobs() {
+            const jobList = document.getElementById('jobs');
+            jobList.innerHTML = ''; // 清空现有内容
+
+            if (jobs.length === 0) {
+                document.getElementById('no-jobs').style.display = 'block';
+            } else {
+                document.getElementById('no-jobs').style.display = 'none';
+                jobs.forEach((job) => {
+                    const jobDiv = document.createElement('div');
+                    jobDiv.className = 'job';
+                    jobDiv.innerHTML = `<h3>${job.title}</h3><p>${job.description}</p>`;
+                    jobList.appendChild(jobDiv);
+                });
+            }
+        }
+
+        // 初始化时渲染招聘信息
+        renderJobs();
+
+        // 模拟添加招聘信息
+        const loadingBar = document.getElementById('loading-bar');
+        loadingBar.style.display = 'block';
+
+        setTimeout(() => {
+            // 在这里添加新的招聘信息
+            //addJob('', '');
+            loadingBar.style.display = 'none'; // 隐藏加载条
+        }, 1580); // 模拟延迟
+    </script>
+</body>
+</html>
