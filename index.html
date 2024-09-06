@@ -72,13 +72,13 @@
 
     <script>
         let jobs = [
-            { title: '軟件工程師' , description: '負責開發和修復軟件' },
-            { title: '產品經理', description: '負責產品管理和市場調查' }
+            { title: '軟件工程師' , description: '負責開發和修復軟件' , link1-1: '' , link1-2: ''},
+            { title: '產品經理', description: '負責產品管理和市場調查' , link1-1: '' , link1-2: ''}
         ];
 
         // 添加招聘信息的函数
-        function addJob(title, description) {
-            jobs.push({ title, description });
+        function addJob(title, description, link) {
+            jobs.push({ title, description, link});
             renderJobs();
         }
 
@@ -94,7 +94,7 @@
                 jobs.forEach((job) => {
                     const jobDiv = document.createElement('div');
                     jobDiv.className = 'job';
-                    jobDiv.innerHTML = `<h3>${job.title}</h3><p>${job.description}</p>`;
+                    jobDiv.innerHTML = `<h3>${job.title}</h3><p>${job.description}</p><a href="${job.link1-1}" >${job.link-1-2}</a>`;
                     jobList.appendChild(jobDiv);
                 });
             }
