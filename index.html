@@ -72,13 +72,13 @@
 
     <script>
         let jobs = [
-            { title: '軟件工程師' , description: '負責開發和修復軟件'},
-            { title: '產品經理', description: '負責產品管理和市場調查'}
+            { title: '軟件工程師' , description: '負責開發和修復軟件' , company: 'givemetocode.net'},
+            { title: '產品經理', description: '負責產品管理和市場調查' , company: 'givemetocode.net'}
         ];
 
         // 添加招聘信息的函数
-        function addJob(title, description) {
-            jobs.push({ title, description});
+        function addJob(title, description, company) {
+            jobs.push({ title, description, company});
             renderJobs();
         }
 
@@ -94,7 +94,7 @@
                 jobs.forEach((job) => {
                     const jobDiv = document.createElement('div');
                     jobDiv.className = 'job';
-                    jobDiv.innerHTML = `<h3>${job.title}</h3><p>${job.description}</p>`;
+                    jobDiv.innerHTML = `<h3>${job.title}</h3><p>${job.description}</p><p>公司: ${job.company}</p>`;
                     jobList.appendChild(jobDiv);
                 });
             }
@@ -110,6 +110,8 @@
         setTimeout(() => {
             // 在这里添加新的招聘信息
             //addJob('', '');
+            addJob('數據中心管理人員', '設定和日常管理伺服器', 'givemetocode.net');
+            addJob('數據中心維修人員', '維修和檢查伺服器', 'givemetocode.net');
             loadingBar.style.display = 'none'; // 隐藏加载条
         }, 1580); // 模拟延迟
     </script>
