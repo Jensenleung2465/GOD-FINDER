@@ -127,7 +127,7 @@
         <div class="message" id="add-job-message"></div>-->
 
         <center>
-            <code>版本: v1.0.2.3<br>&copy; givemetocode.net 有限公司 2024</code>
+            <code>版本: v1.0.2.4<br>&copy; givemetocode.net 有限公司 2024</code>
             <h5>已發行的版本: </h5>
             <menu>
                 <li>v1.0.0.0</li>
@@ -136,19 +136,20 @@
                 <li>v1.0.2.0</li>
                 <li>v1.0.2.1</li>
                 <li>v1.0.2.2</li>
+                <li>v1.0.2.3</li>
             </menu>
         </center>
     </div>
 
     <script>
         let jobs = [
-            { title: '軟件工程師', description: '負責開發和修復軟件', company: 'givemetocode.net', website: 'https://facebook.com/givemetocode.net.hk', check: '已驗證' },
-            { title: '產品經理', description: '負責產品管理和市場調查', company: 'givemetocode.net', website: 'https://facebook.com/givemetocode.net.hk', check: '已驗證' }
+            { title: '軟件工程師', description: '負責開發和修復軟件', company: 'givemetocode.net', website: 'https://facebook.com/givemetocode.net.hk', check: '已驗證' , money: 'HKD$0.00'},
+            { title: '產品經理', description: '負責產品管理和市場調查', company: 'givemetocode.net', website: 'https://facebook.com/givemetocode.net.hk', check: '已驗證' , money: 'HKD$0.00'}
         ];
 
         // 添加招聘信息的函數
-        function addJob(title, description, company, website, check) {
-            jobs.push({ title, description, company, website, check });
+        function addJob(title, description, company, website, check, money) {
+            jobs.push({ title, description, company, website, check, money});
             renderJobs();
         }
 
@@ -164,7 +165,7 @@
                 jobs.forEach((job) => {
                     const jobDiv = document.createElement('div');
                     jobDiv.className = 'job';
-                    jobDiv.innerHTML = `<h3>${job.title}</h3><p>${job.description}</p><p>公司: ${job.company}</p><p>網站: <a href="${job.website}" target="_blank">${job.website}</a></p><code>認證狀態: ${job.check}</code>`;
+                    jobDiv.innerHTML = `<h3>${job.title}</h3><p>${job.description}</p><p>公司: ${job.company}</p><p>網站: <a href="${job.website}" target="_blank">${job.website}</a></p><code>認證狀態: ${job.check}</code><p>工資/報酬: ${job.money}</p>`;
                     jobList.appendChild(jobDiv);
                 });
             }
@@ -178,8 +179,10 @@
         loadingBar.style.display = 'block';
 
         setTimeout(() => {
-            addJob('數據中心管理人員', '設定和日常管理伺服器', 'givemetocode.net', 'https://facebook.com/givemetocode.net.hk', '已驗證');
-            addJob('數據中心維修人員', '維修和檢查伺服器', 'givemetocode.net', 'https://facebook.com/givemetocode.net.hk', '已驗證');
+            addJob('數據中心管理人員', '設定和日常管理伺服器', 'givemetocode.net', 'https://facebook.com/givemetocode.net.hk', '已驗證', 'HKD$0.00');
+            addJob('數據中心維修人員', '維修和檢查伺服器', 'givemetocode.net', 'https://facebook.com/givemetocode.net.hk', '已驗證', 'HKD$0.00');
+            addJob('Roblox 遊戲測試人員', '測試最新的遊戲是否有漏洞', 'givemetocode.net', 'https://facebook.com/givemetocode.net.hk', '已驗證', 'GBUX$2.00 (HKD$0.2)');
+            addJob('高鐵司機', '駕駛高鐵', 'givemetocode.net', 'https://facebook.com/givemetocode.net.hk', '已驗證', 'GBUX$10.00 (HKD$1)');
             loadingBar.style.display = 'none'; // 隱藏加載條
         }, 1580); // 模擬延遲
 
